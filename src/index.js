@@ -103,9 +103,9 @@ sequelize.sync({ force: isTest || isProduction }).then(async () => {
 const createUsersWithMessages = async date => {
   await models.User.create(
     {
-      username: 'rwieruch',
-      email: 'hello@robin.com',
-      password: 'rwieruch',
+      username: 'nmoller',
+      email: 'hello@test.com',
+      password: 'secretsec',
       role: 'ADMIN',
       messages: [
         {

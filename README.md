@@ -1,5 +1,58 @@
 # fullstack-apollo-express-postgresql-boilerplate
 
+## BD postgres
+
+```bash
+docker run --name postgres --network host \
+ -e POSTGRES_PASSWORD=root  \
+  -e POSTGRES_USER=root   \
+  -e POSTGRES_DB=apollo -d \
+  postgres:10
+
+  docker run -it --rm -v ${PWD}:/opt/react  -u 1000 \
+  --network host --name njsserv -w /opt/react \
+  node:11.15.0-stretch \
+ npm install
+```
+
+Se familiariser avec posgres:
+<https://stackoverflow.com/questions/769683/show-tables-in-postgresql>
+<https://www.robinwieruch.de/postgres-express-setup-tutorial/>
+<http://docs.sequelizejs.com/manual/read-replication.html>
+<https://www.robinwieruch.de/graphql-apollo-server-tutorial/>
+
+```bash
+docker exec -it postgres  bash
+psql apollo root
+```
+
+POur que l'ajout des utilisateurs fonctionne, ajouter:
+
+```bash
+DATABASE_URL=postgres://root:root@0.0.0.0:5432/apollo
+```
+
+dans le fichier `.env`.
+
+Une fois cela fait, la requête:
+
+```grapql
+query {
+  user (id:1){
+    username
+    email
+  }
+}
+```
+
+fonctionne.
+
+### Extra middleware
+
+* <https://stackoverflow.com/questions/25468786/what-does-morgan-module-have-to-do-with-express-apps>
+* <https://medium.com/@tobydigz/logging-in-a-node-express-app-with-morgan-and-bunyan-30d9bf2c07a>
+* <https://hackernoon.com/build-a-realtime-serverless-graphql-api-with-websockets-on-aws-d9e553a997>
+
 [![Build Status](https://travis-ci.org/the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate.svg?branch=master)](https://travis-ci.org/the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate) [![Slack](https://slack-the-road-to-learn-react.wieruch.com/badge.svg)](https://slack-the-road-to-learn-react.wieruch.com/) [![Greenkeeper badge](https://badges.greenkeeper.io/the-road-to-graphql/fullstack-apollo-express-postgresql-boilerplate.svg)](https://greenkeeper.io/)
 
 A full-fledged Apollo Server with Apollo Client starter project with React and Express. [Read more about it in this tutorial to build it yourself](https://www.robinwieruch.de/graphql-apollo-server-tutorial/).
