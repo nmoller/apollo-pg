@@ -16,10 +16,11 @@ docker run --name postgres --network host \
 ```
 
 Se familiariser avec posgres:
-<https://stackoverflow.com/questions/769683/show-tables-in-postgresql>
-<https://www.robinwieruch.de/postgres-express-setup-tutorial/>
-<http://docs.sequelizejs.com/manual/read-replication.html>
-<https://www.robinwieruch.de/graphql-apollo-server-tutorial/>
+
+* <https://stackoverflow.com/questions/769683/show-tables-in-postgresql>
+* <https://www.robinwieruch.de/postgres-express-setup-tutorial/>
+* <http://docs.sequelizejs.com/manual/read-replication.html>
+* <https://www.robinwieruch.de/graphql-apollo-server-tutorial/>
 
 ```bash
 docker exec -it postgres  bash
@@ -46,6 +47,10 @@ query {
 ```
 
 fonctionne.
+
+### Mutations
+
+* <https://blog.apollographql.com/designing-graphql-mutations-e09de826ed97>
 
 ### Extra middleware
 
